@@ -18,7 +18,6 @@ colors := map[string]string{
   "RESET" = "0",
 }
 
-
 decor := map[string]string{
   "BOLD" = "1",
   "UNDERLINE" = "4",
@@ -77,5 +76,4 @@ ansi_print_asarr :: proc(ents: []fs) -> string {
     fmt.println(ret[k])
   }
   return strings.concatenate(ret[:])
-
 }
