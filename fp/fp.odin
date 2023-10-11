@@ -1,3 +1,10 @@
+/*
+  
+  Copyright (c) 2023 Erik "Dromedda" Gustafsson
+  Author: Erik Gustafsson
+
+*/
+
 package fp
 
 import "core:fmt"
