@@ -33,7 +33,7 @@ fs :: struct {
 }
 
 // Takes either a string or an array of strings
-ansi_print :: proc {
+print :: proc {
   ansi_print_solo,
   ansi_print_arr,
   ansi_print_asarr,
