@@ -1,8 +1,8 @@
 /*
-  
-  Copyright (c) 2023 Erik "Dromedda" Gustafsson
-  Author: Erik Gustafsson
-
+ * 
+ * Copyright (c) 2023 Erik "Dromedda" Gustafsson
+ * Author: Erik Gustafsson
+ *
 */
 
 package fp
@@ -55,7 +55,7 @@ ansi_print_arr :: proc(str: []string, color: string, decor: string) -> string {
   return ret
 }
 
-ansi_print_solo :: proc(str: string, color: string, decor: string) -> string {
+ansi_print_solo :: proc(str: string, color: string = "39", decor: string = "22") -> string {
   s := [?]string{"\x1b[",decor,";", color, "m", str, "\x1b[0m"};
   ret := strings.concatenate(s[:]);
   fmt.print(ret); 
