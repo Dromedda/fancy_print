@@ -11,6 +11,15 @@ main :: proc() {
    "THIS IS INDEX 2\n",
   };
 
+  ents : []fp.Ansi_String = {
+    fp.Ansi_String{"This is index 1 AS", fp.colors["GREEN"], fp.decor["BOLD"]},
+    fp.Ansi_String{"this is index 2 AS", fp.colors["RED"], fp.decor["UNDERLINE"]},
+  };
+
+  fp.ansi_print(ents);
+
   fp.ansi_print(s, fp.colors["CYAN"], fp.decor["BOLD"]);
+  fp.ansi_print(fp.Ansi_String{"Hello World", fp.colors["DEFAULT"], fp.decor["NORMAL"]});
+
 }
 

@@ -55,26 +55,26 @@ ansi_print_solo :: proc(str: string, color: string, decor: string) -> string {
   return ret
 }
 
-// @TODO IMPLEMENT
 ansi_print_as :: proc(ents: Ansi_String) -> string {
-  assert(false, "Not Implemented yet...")
-  str := "Not Implemented"
-  color := colors["DEFAULT"]
-  decor := decor["NORMAL"]
+  str := ents.str
+  color := ents.color
+  decor := ents.decor
   s := [?]string{"\x1b[",decor,";", color, "m", str, "\x1b[0m"};
   ret := strings.concatenate(s[:]);
   fmt.print(ret); 
   return ret
 }
 
-// @TODO IMPLEMENT
 ansi_print_asarr :: proc(ents: []Ansi_String) -> string {
-  assert(false, "Not Implemented yet...")
-  str := "Not Implemented"
-  color := colors["DEFAULT"]
-  decor := decor["NORMAL"]
-  s := [?]string{"\x1b[",decor,";", color, "m", str, "\x1b[0m"};
-  ret := strings.concatenate(s[:]);
-  fmt.print(ret); 
-  return ret
+  ret : [dynamic]string
+  for s, k in ents {
+    str := s.str
+    color := s.color
+    decor := s.decor
+    s := [?]string{"\x1b[",decor,";", color, "m", str, "\x1b[0m"};
+    append(&ret, strings.concatenate(s[:]))
+    fmt.println(ret[k])
+  }
+  return strings.concatenate(ret[:])
+
 }
