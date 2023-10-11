@@ -26,7 +26,8 @@ decor := map[string]string{
   "NORMAL" = "22",
 }
 
-Ansi_String :: struct {
+// fs is short for Fancy String
+fs :: struct {
   str: string,
   color: string,
   decor: string,
@@ -55,7 +56,7 @@ ansi_print_solo :: proc(str: string, color: string, decor: string) -> string {
   return ret
 }
 
-ansi_print_as :: proc(ents: Ansi_String) -> string {
+ansi_print_as :: proc(ents: fs) -> string {
   str := ents.str
   color := ents.color
   decor := ents.decor
@@ -65,7 +66,7 @@ ansi_print_as :: proc(ents: Ansi_String) -> string {
   return ret
 }
 
-ansi_print_asarr :: proc(ents: []Ansi_String) -> string {
+ansi_print_asarr :: proc(ents: []fs) -> string {
   ret : [dynamic]string
   for s, k in ents {
     str := s.str
