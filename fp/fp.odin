@@ -11,6 +11,8 @@ import "core:fmt"
 import "core:strings"
 import "core:strconv"
 
+// @TODO: ( Erik ) Make these constants, c style
+
 // Ansi Color codes
 colors := map[string]string{
   "BLACK" = "30",

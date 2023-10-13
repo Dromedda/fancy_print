@@ -1,6 +1,6 @@
 package main
 
-import fp"./fp"
+import fp"./fp" // < Use the path to the folder of the package here >
 
 main :: proc() {
   // Use default values
