@@ -14,7 +14,7 @@ import "core:strconv"
 // @TODO: ( Erik ) Make these constants, c style
 
 // Ansi Color codes
-colors := map[string]string{
+color := map[string]string{
   "BLACK" = "30",
   "RED" = "31",
   "GREEN" = "32",
