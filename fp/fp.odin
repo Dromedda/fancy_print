@@ -49,38 +49,36 @@ print :: proc {
 
 ansi_print_arr :: proc(str: []string, color: string, decor: string) -> string {
   cstr := strings.concatenate(str[:]);
-  s := [?]string{"\x1b[",decor,";", color, "m", cstr, "\x1b[0m"};
-  ret := strings.concatenate(s[:]);
-  fmt.print(ret); 
-  return ret
+  s := fs_format_string(cstr, color, decor)
+  fmt.print(s); 
+  return s 
 }
 
 ansi_print_solo :: proc(str: string, color: string = "39", decor: string = "22") -> string {
-  s := [?]string{"\x1b[",decor,";", color, "m", str, "\x1b[0m"};
-  ret := strings.concatenate(s[:]);
-  fmt.print(ret); 
-  return ret
+  s := fs_format_string(str, color, decor);
+  fmt.print(s); 
+  return s 
 }
 
 ansi_print_as :: proc(ents: fs) -> string {
-  str := ents.str
-  color := ents.color
-  decor := ents.decor
-  s := [?]string{"\x1b[",decor,";", color, "m", str, "\x1b[0m"};
-  ret := strings.concatenate(s[:]);
-  fmt.print(ret); 
-  return ret
+  s := fs_format_string(ents.str, ents.color, ents.decor);
+  fmt.print(s); 
+  return s 
 }
 
 ansi_print_asarr :: proc(ents: []fs) -> string {
   ret : [dynamic]string
   for s, k in ents {
-    str := s.str
-    color := s.color
-    decor := s.decor
-    s := [?]string{"\x1b[",decor,";", color, "m", str, "\x1b[0m"};
-    append(&ret, strings.concatenate(s[:]))
+    s := fs_format_string(s.str, s.color, s.decor);
+    append(&ret, s)
     fmt.println(ret[k])
   }
   return strings.concatenate(ret[:])
 }
+
+// color and string could be a type...
+fs_format_string:: proc(str : string,  color: string, decor : string) -> string {
+  s := [?]string{"\x1b[",decor,";", color, "m", str, "\x1b[0m"};
+  return strings.concatenate(s[:]) 
+}
+
