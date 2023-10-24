@@ -19,7 +19,7 @@ main :: proc() {
     fp.fs{"This is Index 2 in the array of fancy strings", fp.color["RED"], fp.decor["UNDERLINE"]},
   };
 
-  // Print and array of strings
+  // Print an array of strings
   fp.print(s, fp.color["CYAN"], fp.decor["BOLD"]);
 
   // Fancy print the array of fancy strings
